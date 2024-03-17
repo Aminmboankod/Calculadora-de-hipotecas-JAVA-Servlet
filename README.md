@@ -79,6 +79,18 @@ El archivo de configuración del logger está en src/main/resources/
 
 hipotecasbd.sql
 
+
+# Configuracion Base de datos:
+
+Nombre de la base de datos: hipotecas
+Usuario: root
+Contraseña: Boank0d!
+
+# Dependencias:
+
+- log4j-core-2.12.4.jar
+- log4j-api-2.12.4.jar
+
 # Destacados
 
 Me gustaría destacar la inversión de dependencia aplicada, usando interfaces y separando el comportamiento de los modelos.

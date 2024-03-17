@@ -6,20 +6,16 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import models.Hipoteca;
-import models.Usuario;
 import repository.Repository;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
-import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.*;
 
-import Servlets.Login.LoginServlet;
 import domain.Amortizacion;
 import domain.CalculadoraHipoteca;
 import domain.ResultadoFinanciacion;
@@ -27,7 +23,7 @@ import domain.ResultadoFinanciacion;
 @WebServlet("/recuperar")
 public class RecuperarHipotecaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final Logger logger = LogManager.getLogger(RecuperarHipotecaServlet.class);
+	private static final Logger logger = LogManager.getLogger(RecuperarHipotecaServlet.class.getName());
 	private CalculadoraHipoteca hipoteca;
     private Repository<Hipoteca> hipotecaRepository = new Repository();
     public RecuperarHipotecaServlet() {

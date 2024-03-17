@@ -5,14 +5,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import models.Usuario;
 import repository.Repository;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.*;
 
 import database.dbcontext.DbContext;
 
@@ -20,7 +20,7 @@ import database.dbcontext.DbContext;
 public class RegistroServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private Repository<Usuario> userRepository = new Repository();
-	private static final Logger logger = LogManager.getLogger(RegistroServlet.class);
+	private static final Logger logger = LogManager.getLogger(RegistroServlet.class.getName());
     public RegistroServlet() {
         super();
     }
@@ -60,6 +60,9 @@ public class RegistroServlet extends HttpServlet {
         	
             boolean exito = userRepository.Save(nuevoUsuario);
             if (exito) {
+            	
+            	request.getSession().setAttribute("usuario", nuevoUsuario);
+            
             	logger.info("Se ha registrado correctamente");
                 response.sendRedirect("Calculadora.jsp");
             } else {

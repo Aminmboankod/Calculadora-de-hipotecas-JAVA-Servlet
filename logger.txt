@@ -1,0 +1,25 @@
+/**
+ * Servlet que maneja las solicitudes para el formulario de hipoteca.
+ */
+@WebServlet("/hipoteca-formulario")
+public class HipotecaServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private static final Logger logger = Logger.getLogger(HipotecaServlet.class.getName());
+	static {
+		try {
+			// Ruta absoluta al proyecto "Hipotecas"
+			String absolutePath = "C:/Users/Usuario/Documents/CodigoEclipse/Hipotecas";
+			// Crear el directorio logs si no existe
+			File directory = new File(absolutePath, "logs");
+			if (!directory.exists()) {
+				directory.mkdir();
+			}
+			// Crear el FileHandler para el archivo de log en el directorio logs
+			FileHandler fh = new FileHandler(directory.getPath() + "/AppHipotecas.txt", true);
+			fh.setFormatter(new SimpleFormatter());
+			logger.addHandler(fh);
+			logger.setLevel(Level.ALL);
+		} catch (IOException e) {
+			logger.log(Level.SEVERE, "Error al configurar el logger", e);
+		}
+	}

@@ -1,0 +1,4 @@
+2024-03-17 22:19:01 [http-nio-8080-exec-5] INFO  Servlets.Login.RegistroServlet - Se ha registrado correctamente
+2024-03-17 22:19:08 [http-nio-8080-exec-4] INFO  Servlets.Hipotecas.CalculadoraHipotecaServlet - Se va a realizar un estudio de hipoteca con los siguientes importes:  Importe: 41231.0 Interes: 12.0 Plazo: 124 Por el usuario: nuevo
+2024-03-17 22:24:21 [http-nio-8080-exec-6] INFO  Servlets.Login.LoginServlet - Usuario admin logeado correctamente.
+2024-03-17 22:24:30 [http-nio-8080-exec-3] INFO  Servlets.Hipotecas.CalculadoraHipotecaServlet - Se va a realizar un estudio de hipoteca con los siguientes importes:  Importe: 123121.0 Interes: 12.0 Plazo: 132 Por el usuario: admin desde: 0:0:0:0:0:0:0:1

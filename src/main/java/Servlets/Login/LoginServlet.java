@@ -17,28 +17,24 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
-import database.dbcontext.DbContext;
+import org.apache.logging.log4j.*;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
-	
-	private static final Logger logger = LogManager.getLogger(LoginServlet.class);
-	
+
 	private static final long serialVersionUID = 1L;
-	private List<Hipoteca> hipotecas;
-    private Repository<Usuario> userRepository = new Repository();
+	private static final Logger logger = LogManager.getLogger(LoginServlet.class.getName());
+	private Repository<Usuario> userRepository = new Repository();
     private Repository<Hipoteca> hipotecaRepository = new Repository();
+    
     public LoginServlet() {
         super();
-
     }
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		
 	}
 
 	/**

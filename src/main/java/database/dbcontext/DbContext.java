@@ -20,7 +20,7 @@ public class DbContext {
     private static DbContext instance;
     private static String url = "jdbc:mysql://localhost:3306/hipotecas";
     private static String usuario = "root";
-    private static String contraseña = "password";
+    private static String contraseña = "Boank0d!";
     private Connection db;
     private PreparedStatement Statement = null;
     
