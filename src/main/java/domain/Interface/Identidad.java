@@ -1,4 +1,4 @@
-package domain;
+package domain.Interface;
 
 public interface Identidad {
     int getId();

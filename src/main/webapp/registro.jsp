@@ -3,13 +3,13 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Registro</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
         }
-        .login-container {
+        .register-container {
             width: 300px;
             margin: 0 auto;
             padding: 20px;
@@ -43,15 +43,17 @@
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <h2>Login</h2>
-        <form action="loginServlet" method="post">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password">
-            <input type="submit" value="Login">
+    <div class="register-container">
+        <h2>Registro</h2>
+        <form action="registro" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre">
+            <label for="contraseña">Contraseña:</label>
+            <input type="password" id="contraseña" name="contraseña">
+            <input type="submit" value="Registrar">
         </form>
+        <p>¿Ya tienes una cuenta? <a href="../hipotecas">Inicia sesión aquí</a>.</p>
     </div>
+    
 </body>
 </html>

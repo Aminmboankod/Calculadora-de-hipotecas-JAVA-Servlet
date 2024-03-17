@@ -61,3 +61,25 @@ La nota de cada apartado se establecerá según la siguiente tabla:
 La valoración de la puntuación irá desde un 0 si no se realiza hasta la nota máxima del apartado según la interpretación que haga el profesor del resultado presentado.
 
 Si el script de creación de la base de datos no funciona y no se puede probar la aplicación, esta constará como no realizada. Si la aplicación no compila constará como no realizada.
+
+
+# Configuracion BBDD
+
+Usando docker:
+Descarga de la imagen docker con: docker pull mysql:latest
+Crear el contenedor: docker run --name mysqlcontainer -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=hipotecas -p 3306:3306 -d mysql
+
+
+# Logger
+
+El archivo de configuración del logger está en src/main/resources/
+
+
+# La ubicación del script sql
+
+hipotecasbd.sql
+
+# Destacados
+
+Me gustaría destacar la inversión de dependencia aplicada, usando interfaces y separando el comportamiento de los modelos.
+Además tambíen cabe destacar la clase Repository, en la que he logrado que pueda realizar operaciones y consultas en la base de datos de forma agnóstica al tipo o tabla a la que se le realiza.

@@ -18,8 +18,8 @@ import java.sql.PreparedStatement;
 public class DbContext {
 	
     private static DbContext instance;
-    private static String url = "jdbc:mysql://localhost:3306/nombre_base_de_datos";
-    private static String usuario = "aminmb";
+    private static String url = "jdbc:mysql://localhost:3306/hipotecas";
+    private static String usuario = "root";
     private static String contraseña = "password";
     private Connection db;
     private PreparedStatement Statement = null;
@@ -28,9 +28,9 @@ public class DbContext {
     /**
      * Constructor
      */
-    private DbContext() {
+    public DbContext() {
     	try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             System.err.println("Error al cargar el controlador JDBC: " + e.getMessage());
         }
@@ -40,7 +40,7 @@ public class DbContext {
      * Instancia la clase si no lo está SINGLETON syncronized
      * @return void
      */
-    public static synchronized DbContext getInstance() {
+    public synchronized DbContext getInstance() {
         if (instance == null) {
             instance = new DbContext();
         }
@@ -72,12 +72,6 @@ public class DbContext {
         if (db != null && !db.isClosed()) {
             db.close();
         }
-    }
-
-    
-    // Obtener la conexión a la base de datos
-    public Connection getConnection() {
-        return db;
     }
 
 }

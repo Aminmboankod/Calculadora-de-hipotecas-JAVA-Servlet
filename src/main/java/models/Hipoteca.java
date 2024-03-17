@@ -1,105 +1,65 @@
 package models;
 
-import java.util.ArrayList;
-import java.util.List;
+import domain.CalculadoraHipoteca;
 
-import domain.Financiacion;
+public class Hipoteca {
+    private double importe;
+    private double interes;
+    private int plazo;
+    private int usuario_id;
+    private int id;
 
-public class Hipoteca implements Financiacion 
-{
-	private double Importe;
-	private double Interes;
-	private int Plazo;
-	public ResultadoFinanciacion Resultado;
-	
-	public Amortizacion Asiento;
-	public List<Amortizacion> AmortizacionHipoteca;
+    public Hipoteca() {}
 
-    public Hipoteca(double importe, double interes, int plazo) {
-        Importe = importe;
-        Interes = interes;
-        Plazo = plazo;
-        Resultado = new ResultadoFinanciacion();
-        Asiento = new Amortizacion();
-        AmortizacionHipoteca = new ArrayList<>();
+    public Hipoteca(CalculadoraHipoteca hipoteca) {
+        this.importe = hipoteca.getImporte();
+        this.interes = hipoteca.getInteres();
+        this.plazo = hipoteca.getPlazo();this.usuario_id = hipoteca.getUsuario_id();
     }
-	
-	
-	@Override
-	public void CalculoFinanciacion() {
-        double i = Interes / 12 / 100; // Convierte el interés anual a mensual y a porcentaje
-        double cuota = Importe * (i / (1 - Math.pow(1 + i, -Plazo))); // Calcula la cuota de la hipoteca
-        double totalPagos = cuota * Plazo;
-        double totalIntereses = totalPagos - Importe;
-        
-        Resultado.Cuota = cuota;
-        Resultado.Pagos = Plazo;
-        Resultado.Principal = Importe;
-        Resultado.TotalIntereses = totalIntereses;
-        Resultado.TotalPagos = totalPagos; 
-        
-        GeneraTablaAmortizacion(cuota, i);
-	}
 
-	@Override
-	public void GeneraTablaAmortizacion(double cuota, double interesFijo) {
-
-        double capitalPendiente = Importe;
-        for (int n = 1; n <= Plazo; n++) {
-            double intereses = capitalPendiente * interesFijo;
-            double capitalAmortizado = Resultado.Cuota - intereses;
-            capitalPendiente -= capitalAmortizado;
-            Asiento = new Amortizacion();
-            Asiento.setPagoNumero(n);
-            Asiento.setCapitalPendiente(capitalPendiente);
-            Asiento.setCapitalAmortizado(capitalAmortizado);
-            Asiento.setIntereses(intereses);
-            Asiento.setCuota(cuota);
-            AmortizacionHipoteca.add(Asiento);
-        }
-	}
-	
-	/**
-	 * @return the importe
-	 */
 	public double getImporte() {
-		return Importe;
+		return importe;
 	}
 
-	/**
-	 * @param importe the importe to set
-	 */
 	public void setImporte(double importe) {
-		Importe = importe;
+		this.importe = importe;
 	}
 
-	/**
-	 * @return the interes
-	 */
 	public double getInteres() {
-		return Interes;
+		return interes;
 	}
 
-	/**
-	 * @param interes the interes to set
-	 */
 	public void setInteres(double interes) {
-		Interes = interes;
+		this.interes = interes;
 	}
 
-	/**
-	 * @return the plazo
-	 */
 	public int getPlazo() {
-		return Plazo;
+		return plazo;
+	}
+
+	public void setPlazo(int plazo) {
+		this.plazo = plazo;
+	}
+
+	public int getUsuario_id() {
+		return usuario_id;
+	}
+
+	public void setUsuario_id(int usuario_id) {
+		this.usuario_id = usuario_id;
 	}
 
 	/**
-	 * @param plazo the plazo to set
+	 * @return the id
 	 */
-	public void setPlazo(int plazo) {
-		Plazo = plazo;
+	public int getId() {
+		return id;
 	}
 
-
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
 }
